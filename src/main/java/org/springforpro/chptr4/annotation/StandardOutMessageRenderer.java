@@ -2,7 +2,9 @@ package org.springforpro.chptr4.annotation;
 
 import org.springforpro.chptr4.MessageProvider;
 import org.springforpro.chptr4.MessageRenderer;
+import org.springframework.stereotype.Service;
 
+@Service("messageRenderer")
 public class StandardOutMessageRenderer implements MessageRenderer {
 	private MessageProvider mp;
 
