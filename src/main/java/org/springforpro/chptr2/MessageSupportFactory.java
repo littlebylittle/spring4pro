@@ -18,6 +18,7 @@ public class MessageSupportFactory {
 	public MessageSupportFactory() {
 		try {
 			props = new Properties();
+
 			props.load(new FileInputStream("conf/msf.properties"));
 			String rendererClass = props.getProperty("renderer.class");
 			String providerClass = props.getProperty("provider.class");
