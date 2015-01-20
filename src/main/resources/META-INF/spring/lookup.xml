@@ -32,4 +32,5 @@
 		<property name="myHelper">
 			<ref bean="helper"></ref>
 		</property>
+	</bean>
 </beans>
