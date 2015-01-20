@@ -9,5 +9,8 @@ public abstract class AbstractLookupDemoBean implements DemoBean {
 	public void someOperation() {
 		getMyHelper().doSomethingHelpful();
 	}
-
+	
+	public static String getName() {
+		return "LOL WUT?";
+	}
 }
