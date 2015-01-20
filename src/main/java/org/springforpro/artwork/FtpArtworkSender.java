@@ -16,5 +16,4 @@ public class FtpArtworkSender implements ArtworkSender{
 	public String getShortName() {
 		return "ftp";
 	}
-
 }
