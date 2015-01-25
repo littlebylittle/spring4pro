@@ -22,10 +22,10 @@ public class FormatMessageReplacer implements MethodReplacer{
 			(! (method.getReturnType() == String.class) ),
 			(  (method.getParameterTypes()[0] != String.class))
 		};
-		for (Boolean fail : fails) {
-			if(fail)
-				return false;
-		}
+//		for (Boolean fail : fails) {
+//			if(fail)
+//				return false;
+//		}
 		return true;
 	}
 

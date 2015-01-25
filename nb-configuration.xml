@@ -23,6 +23,8 @@ Any value defined here will override the pom.xml file value but is only applicab
             <config-file>src/main/resources/injectref/app-inject-conf.xml</config-file>
             <config-file>src/main/resources/injectref/app-another-conf.xml</config-file>
             <config-file>src/main/resources/replacement.xml</config-file>
+            <config-file>src/main/resources/lifecycle/initMethod.xml</config-file>
+            <config-file>src/main/resources/lifecycle/initInterface.xml</config-file>
         </config-files>
         <config-file-groups/>
     </spring-data>

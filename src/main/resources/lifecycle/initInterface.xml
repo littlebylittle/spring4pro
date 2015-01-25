@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans
+	   default-lazy-init="true"
+	   xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:aop="http://www.springframework.org/schema/aop"
 	   xmlns:c="http://www.springframework.org/schema/c"
@@ -24,11 +26,22 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd
 ">
-	<bean id="methodReplacer" class="replacement.FormatMessageReplacer"></bean>
-	<bean id="replacementTarget" class="replacement.ReplacementTarget">
-		<replaced-method name="formatMessage" replacer="methodReplacer">
-			<arg-type>String</arg-type>
-		</replaced-method>
-	</bean>
-	<bean id="standardTarget" class="replacement.ReplacementTarget"></bean>
+		<bean id="simpleBean1" class="org.springforpro.chptr5.SimpleBeanWithInterface">
+			<property name="name">
+				<value type="java.lang.String">Bean Beanovich</value>
+			</property>
+			<property name="age">
+				<value type="int">11</value>
+			</property>
+		</bean>
+		<bean id="simpleBean2" class="org.springforpro.chptr5.SimpleBeanWithInterface">
+			<property name="age">
+				<value type="int">11</value>
+			</property>
+		</bean>
+		<bean id="simpleBean3" class="org.springforpro.chptr5.SimpleBeanWithInterface">
+			<property name="name">
+				<value type="java.lang.String">Bean Beanovich</value>
+			</property>
+		</bean>
 </beans>
