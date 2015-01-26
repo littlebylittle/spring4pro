@@ -18,7 +18,7 @@ public class SimpleBeanWithInterface implements InitializingBean  {
 	}
 	private int age = Integer.MIN_VALUE;
 
-	public void myInint() {
+	public void myInit() {
 		System.out.println("Init call! " );
 	}
 
@@ -47,6 +47,9 @@ public class SimpleBeanWithInterface implements InitializingBean  {
 		SimpleBeanWithInterface simpleBean1 = getBean("simpleBean1", ctx);
 		SimpleBeanWithInterface simpleBean2 = getBean("simpleBean2", ctx);
 		SimpleBeanWithInterface simpleBean3 = getBean("simpleBean3", ctx);
+		System.out.println("b1  = b2 => " + (simpleBean1 == simpleBean2) +
+				"# b2 == b3 =>  " + (simpleBean2 == simpleBean3) );
+		ctx.getBeanFactory().destroySingletons();
 	}
 
 	private static SimpleBeanWithInterface getBean(String beanName, GenericXmlApplicationContext ctx) {
