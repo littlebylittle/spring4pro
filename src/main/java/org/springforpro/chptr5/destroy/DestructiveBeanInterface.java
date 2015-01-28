@@ -3,10 +3,11 @@ package org.springforpro.chptr5.destroy;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class DestructiveBean implements InitializingBean{
+public class DestructiveBeanInterface implements DisposableBean, InitializingBean {
 	private InputStream is = null;
 	private String filePath = null;
 
@@ -19,8 +20,9 @@ public class DestructiveBean implements InitializingBean{
 		is = new FileInputStream(filePath);
 	}
 
+	@Override
 	public void destroy() {
-		System.out.println("Destroing bean ");
+		System.out.println("Destroing bean in destroy method ");
 		if(null != is) {
 			try {
 				is.close();
