@@ -1,6 +1,5 @@
 package org.springforpro.chptr5.Factory;
 
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 import java.security.MessageDigest;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
