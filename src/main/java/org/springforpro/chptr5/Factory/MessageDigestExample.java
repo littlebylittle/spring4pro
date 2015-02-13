@@ -9,5 +9,6 @@ public class MessageDigestExample {
 		ctx.refresh();
 		MessageDigester bean = ctx.getBean("digester", MessageDigester.class);
 		bean.digest("Hallo?");
+		bean.showDiff();
 	}
 }

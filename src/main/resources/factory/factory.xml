@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans default-lazy-init="true"
+	   xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:aop="http://www.springframework.org/schema/aop"
 	   xmlns:c="http://www.springframework.org/schema/c"
@@ -24,18 +25,18 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd
 ">
-	<bean id="shaDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean">
+	<bean id="shaDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean" >
 		<property name="algorithmName">
 			<value type="java.lang.String">SHA1</value>
 		</property>
 	</bean>
-	<bean id="defaultDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean"></bean>
+	<bean id="defaultDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean" scope="singleton"></bean>
 	<bean id="digester" class="org.springforpro.chptr5.Factory.MessageDigester">
 		<property name="digest1">
-			<ref bean="defaultDigest"></ref>
+			<ref bean="shaDigest"></ref>
 		</property>
 		<property name="digest2">
-			<ref bean="defaultDigest"></ref>
+			<ref bean="shaDigest"></ref>
 		</property>
 	</bean>
 </beans>
