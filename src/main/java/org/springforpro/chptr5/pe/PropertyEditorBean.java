@@ -33,7 +33,7 @@ public class PropertyEditorBean {
 	private URL url;
 
 	public void setBytes(byte[] bytes) {
-		System.out.println("Setting bytes :: " + bytes.toString());
+		System.out.println("Lenght bytes :: " + bytes.length);
 		this.bytes = bytes;
 	}
 
@@ -99,7 +99,7 @@ public class PropertyEditorBean {
 		this.cls = cls;
 	}
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		GenericXmlApplicationContext ctx  = new GenericXmlApplicationContext();
 		ctx.load("classpath:pe/builtin.xml");
 		ctx.refresh();

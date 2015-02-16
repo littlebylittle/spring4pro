@@ -53,7 +53,35 @@
 		<property name="cls">
 			<value>java.lang.String</value>
 		</property>
-		
+		<property name="trueOrFalse">
+			<value>true</value>
+		</property>
+		<property name="date">
+			<value type="java.util.Date">2015-12-12</value>
+		</property>
+		<property name="floatValue">
+			<value>-123.33</value>
+		</property>
+		<property name="file">
+			<value>classpath:test.txt</value>
+		</property>
+		<property name="stream">
+			<value>classpath:test.txt</value>
+		</property>
+		<property name="locale">
+			<value>ru_RU</value>
+		</property>
+		<property name="pattern">
+			<value>a.*b</value>
+		</property>
+		<property name="properties">
+			<value>
+				name=Bobla
+				age=19
+			</value>
+		</property>
+		<property name="trimString">
+			<value>  Trim sring need to be trimming!    </value>
+		</property>
 	</bean>
-
 </beans>
