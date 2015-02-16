@@ -29,7 +29,7 @@
 			<value type="java.lang.String">SHA1</value>
 		</property>
 	</bean>
-	<bean id="defaultDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean"></bean>
+	<bean id="defaultDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean" ></bean>
 	<bean id="digester" class="org.springforpro.chptr5.Factory.MessageDigester">
 		<property name="digest1">
 			<ref bean="defaultDigest"></ref>
