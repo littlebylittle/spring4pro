@@ -103,6 +103,6 @@ public class PropertyEditorBean {
 		GenericXmlApplicationContext ctx  = new GenericXmlApplicationContext();
 		ctx.load("classpath:pe/builtin.xml");
 		ctx.refresh();
-		PropertyEditorBean bean = ctx.getBean("buitlinSample", PropertyEditorBean.class);
+		PropertyEditorBean bean = ctx.getBean("builtinSample", PropertyEditorBean.class);
 	}
 }

@@ -27,21 +27,22 @@
 	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
 		<property name="customEditors">
 			<map>
-				<entry key="java.util.Date">
+<!--				<entry key="java.util.Date">
 					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
-						<constructor-arg>
+						<constructor-arg type="java.text.DateFormat">
 							<bean class="java.text.SimpleDateFormat">
 								<constructor-arg value="yyyy-MM-dd"></constructor-arg>
 							</bean>
 						</constructor-arg>
 						<constructor-arg value="true" />
 					</bean>
-				</entry>
-				<entry key="java.lang.String">
+				</entry>-->
+<!--				<entry key="java.lang.String">
 					<bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor">
 						<constructor-arg value="true" />
 					</bean>
-				</entry>
+				</entry>-->
+				<entry value="LOL"></entry>
 			</map>
 		</property>
 	</bean>
@@ -56,9 +57,9 @@
 		<property name="trueOrFalse">
 			<value>true</value>
 		</property>
-		<property name="date">
+<!--		<property name="date">
 			<value type="java.util.Date">2015-12-12</value>
-		</property>
+		</property>-->
 		<property name="floatValue">
 			<value>-123.33</value>
 		</property>
