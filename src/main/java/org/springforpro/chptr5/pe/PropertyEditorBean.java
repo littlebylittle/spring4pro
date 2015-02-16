@@ -46,7 +46,7 @@ public class PropertyEditorBean {
 		System.out.println("Setting List of string with size::" + stringList.size());
 		for (String el : stringList) {
 			System.out.println("Element ==  " + el);
-		}		
+		}
 		this.stringList = stringList;
 	}
 
@@ -98,8 +98,8 @@ public class PropertyEditorBean {
 		System.out.println("Set class for cls variable");
 		this.cls = cls;
 	}
-	
-	public void main(String[] args) {
+
+	public static void main(String[] args) {
 		GenericXmlApplicationContext ctx  = new GenericXmlApplicationContext();
 		ctx.load("classpath:pe/builtin.xml");
 		ctx.refresh();

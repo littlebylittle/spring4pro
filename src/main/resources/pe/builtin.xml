@@ -27,25 +27,25 @@
 	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
 		<property name="customEditors">
 			<map>
-				<entry key="java.util.date">
+				<entry key="java.util.Date">
 					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
 						<constructor-arg>
 							<bean class="java.text.SimpleDateFormat">
 								<constructor-arg value="yyyy-MM-dd"></constructor-arg>
 							</bean>
 						</constructor-arg>
-						<constructor-arg value="true" type="java.lang.Boolean"><constructor-arg>		
+						<constructor-arg value="true" />
 					</bean>
 				</entry>
 				<entry key="java.lang.String">
 					<bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor">
-						<constructor-arg value="true" type="java.lang.Boolean" ></constructor-arg>
+						<constructor-arg value="true" />
 					</bean>
 				</entry>
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean id="builtinSample" class="org.springforpro.chptr5.pe.PropertyEditorBean">
 		<property name="bytes">
 			<value>Hello from byte-world!</value>
@@ -53,7 +53,5 @@
 		<property name="cls">
 			<value>java.lang.String</value>
 		</property>
-		
 	</bean>
-
 </beans>
