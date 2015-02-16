@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans default-lazy-init="true"
-	   xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xmlns:aop="http://www.springframework.org/schema/aop"
 	   xmlns:c="http://www.springframework.org/schema/c"
@@ -25,18 +24,36 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd
 ">
-	<bean id="shaDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean" >
-		<property name="algorithmName">
-			<value type="java.lang.String">SHA1</value>
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.date">
+					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
+						<constructor-arg>
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg value="yyyy-MM-dd"></constructor-arg>
+							</bean>
+						</constructor-arg>
+						<constructor-arg value="true" type="java.lang.Boolean"><constructor-arg>		
+					</bean>
+				</entry>
+				<entry key="java.lang.String">
+					<bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor">
+						<constructor-arg value="true" type="java.lang.Boolean" ></constructor-arg>
+					</bean>
+				</entry>
+			</map>
 		</property>
 	</bean>
-	<bean id="defaultDigest" class="org.springforpro.chptr5.Factory.MessageDigestFactoryBean" ></bean>
-	<bean id="digester" class="org.springforpro.chptr5.Factory.MessageDigester">
-		<property name="digest1">
-			<ref bean="shaDigest"></ref>
+	
+	<bean id="builtinSample" class="org.springforpro.chptr5.pe.PropertyEditorBean">
+		<property name="bytes">
+			<value>Hello from byte-world!</value>
 		</property>
-		<property name="digest2">
-			<ref bean="shaDigest"></ref>
+		<property name="cls">
+			<value>java.lang.String</value>
 		</property>
+		
 	</bean>
+
 </beans>

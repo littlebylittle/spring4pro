@@ -1,6 +1,7 @@
 package org.springforpro.chptr5.Factory;
 
 import java.security.MessageDigest;
+import java.util.Arrays;
 
 public class MessageDigester {
 	private MessageDigest digest1;
@@ -22,6 +23,10 @@ public class MessageDigester {
 		return digest2;
 	}
 
+	public void showDiff() {
+		System.out.println("Equals of digest1 and digest2 is :" + this.digest1.equals(digest2));
+	}
+	
 	public void digest(String msg) {
 		System.out.println("Using digest1 ...");
 		digest(msg, digest1);
@@ -31,10 +36,13 @@ public class MessageDigester {
 	}
 
 	private void digest(String msg, MessageDigest digest) {
-		System.out.println("Using algorithm  " + digest.getAlgorithm() + " message = " + msg);
+		System.out.println("Using algorithm  " + digest.getAlgorithm() + 
+				", for message = " + msg);
 		digest.reset();
 		byte[] bytes = msg.getBytes();
 		byte[] out = digest.digest(bytes);
-		System.out.println("Out = " + out);
+		System.out.println("Out = " + out + 
+				" :: Call class-incstance MessageDigest :" + 
+				digest.toString());
 	}
 }
