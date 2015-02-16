@@ -33,7 +33,7 @@ public class PropertyEditorBean {
 	private URL url;
 
 	public void setBytes(byte[] bytes) {
-		System.out.println("Setting bytes :: " + bytes.toString());
+		System.out.println("Lenght bytes :: " + bytes.length);
 		this.bytes = bytes;
 	}
 
