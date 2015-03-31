@@ -8,7 +8,6 @@ package org.springforpro.chptr5.context;
 
 import java.util.Locale;
 import org.springframework.context.support.GenericXmlApplicationContext;
-import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**  @author igorm  */
 public class MessageSourceDemo {
@@ -24,10 +23,11 @@ public class MessageSourceDemo {
 		System.out.println("Russian msg: " + ctx.getMessage("msg", null, russian));
 		System.out.println("English nameMsg" + ctx.getMessage("nameMsg", new Object[] {	"Clarence", "Ho"}, english ));
 //		ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-//		source.setBasename("labels");
+//		StaticMessageSource source = new StaticMessageSource();
+//		source.setBasename("appContext/labels");
 //		System.out.println(source.getMessage("msg", null, russian) );
 //		System.out.println(source.getMessage("msg", null, english) );
-
+//		Object[] os = new Object[] {"One", "two"};
+//		System.out.println(source.getMessage("nameMsg", new Object[] {"wut", "in my butt"}, english));		
 	}
-
 }
