@@ -29,20 +29,22 @@
 			<map>
 <!--				<entry key="java.util.Date">
 					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
-						<constructor-arg type="java.text.DateFormat">
+						<constructor-arg>
 							<bean class="java.text.SimpleDateFormat">
 								<constructor-arg value="yyyy-MM-dd"></constructor-arg>
 							</bean>
 						</constructor-arg>
+
 						<constructor-arg value="true" />
 					</bean>
-				</entry>-->
-<!--				<entry key="java.lang.String">
+				</entry>
+				<entry key="java.lang.String">
 					<bean class="org.springframework.beans.propertyeditors.StringTrimmerEditor">
 						<constructor-arg value="true" />
 					</bean>
-				</entry>-->
-				<entry value="LOL"></entry>
+				</entry>
+				<entry key="java.lang.String" value="java.lang.String"></entry>
+				<entry key="java.util.Date" value="java.util.Date"></entry>-->
 			</map>
 		</property>
 	</bean>
