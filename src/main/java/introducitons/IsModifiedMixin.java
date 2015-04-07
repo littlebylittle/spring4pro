@@ -21,11 +21,12 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 		return super.doProceed(mi); //To change body of generated methods, choose Tools | Templates.
 	}
 	@Override
-	@SuppressWarnings("null")
 	public Object invoke(MethodInvocation mi) throws Throwable {
+		showMI(mi);
 		if(!isModified()) {
 			if(methodStartWith(mi, "set") && mi.getArguments().length == 1) {
-				Method getter = getGetterFromSetter(mi.getMethod());
+				Method getter;
+				getter = getGetterFromSetter(mi.getMethod());
 
 				if(null != getter) {
 					Object newVal = mi.getArguments()[0];
@@ -36,11 +37,15 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 							   (newVal == null && oldVal != null) ) {
 						modified =  true;
 					} else
-						modified = newVal.equals(oldVal);
+						modified = !newVal.equals(oldVal);
 				}
 			}
 		} 
 		return super.invoke(mi);
+	}
+	
+	private void showMI(MethodInvocation mi) {
+//		System.out.println("[Call invoke for method = " + mi.getMethod().getName() + "] modified = " + isModified());		
 	}
 	
 	private boolean methodStartWith(MethodInvocation mi, String substr) {
@@ -55,13 +60,13 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 	}
 	private Method getGetterFromSetter(Method setter) {
 		Method getter = methodCache.get(setter);
-		if(null == getter) {
-		} else {
+		if(null != getter) {
 			return getter;
 		}
 		String getterName = setter.getName().replaceFirst("set", "get");
 		try {
-			getter = setter.getDeclaringClass().getMethod(getterName, (Class<?>) null);
+//			@SuppressWarnings("null")
+			getter = setter.getDeclaringClass().getMethod(getterName, null);
 			synchronized (methodCache) {
 				methodCache.put(setter, getter);
 			}

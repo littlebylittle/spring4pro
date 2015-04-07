@@ -13,7 +13,6 @@ public class TargetBean {
 		return name;
 	}
 	public void setName(String name) {
-		System.out.println("MODIFYING!");
 		this.name = name;
 	}
 }

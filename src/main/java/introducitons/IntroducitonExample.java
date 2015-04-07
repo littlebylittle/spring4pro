@@ -22,12 +22,12 @@ public class IntroducitonExample {
 		pf.setOptimize(true);
 		TargetBean proxy = (TargetBean) pf.getProxy();
 		IsModified proxyInterface = (IsModified) proxy;
-		System.out.println("Is target bean? : " +  (proxy instanceof TargetBean));
-		System.out.println("Is modified   ? : " +  (proxy instanceof IsModified));
+		System.out.println("Proxy is target bean ?         : " +  (proxy instanceof TargetBean));
+		System.out.println("Proxy is child of  Ismodified? : " +  (proxy instanceof IsModified));
 		
-		System.out.println("Has been modified? : " + proxyInterface.isModified());
+		System.out.println("Has been modified interface? : " + proxyInterface.isModified());
 		proxy.setName("Loup Garou");
-		System.out.println("Has been modified? : " + proxyInterface.isModified());
+		System.out.println("Has been modified? Loup Garou != Loup Garou : " + proxyInterface.isModified());
 		proxy.setName("Za Warudo");
 		System.out.println("Has been modified? : " + proxyInterface.isModified());
 	}
