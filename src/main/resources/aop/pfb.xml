@@ -22,17 +22,16 @@
 		<property name="dep">
 			<ref bean="myDependancy1">
 		</property>
-	</bean>
-	
+	</bean>	
 	<bean id="myBean2" class="pfb.MyBean">
 		<property name="dep">
-			<ref bean="????">
+			<ref bean="myDependency2">
 		</property>
 	</bean>
-	<bean id="myDependancyTarget" name="myDependancyTarget" class="pfb.MyDependency"></bean>
-	<bean id="myDependancy1" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<bean id="myDependancyTarget" name="myDependancyTarget" class="pfb.MyDependency"></bean> <!--class with foo & boo -->
+	<bean id="myDependancy1" name="pfb1" class="org.springframework.aop.framework.ProxyFactoryBean"><!-- pfb -->
 		<property name="target">
-			<ref local="myBean1"></ref>
+			<ref local="myBean1"></ref> <!-- setTarget myBean -->
 		</property>
 		<property name="interceptorNames">
 			<list>
@@ -40,7 +39,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="myDependancy2" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<bean id="myDependancy2" name="pfb2" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target">
 			<ref local="myDependancyTarget"></ref>
 		</property>
