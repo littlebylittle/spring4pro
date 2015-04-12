@@ -1,20 +1,19 @@
 package pfb;
 
-import org.springframework.aop.Pointcut;
 import org.springframework.aop.framework.ProxyFactoryBean;
-import org.springframework.aop.support.DefaultPointcutAdvisor;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**  @author igorm  */
 public class TestMainClass {
 	public static void main(String[] args) {
-		ProxyFactoryBean pfb = new ProxyFactoryBean();
-		pfb.setInterceptorNames(new String[]{"bean"});
-		DefaultPointcutAdvisor pc = new DefaultPointcutAdvisor();
+		System.out.println("Little steps: getName = " + MySecretAdvice.class.getName());
+		System.out.println("Little steps: getCanonicalName  = " + MySecretAdvice.class.getCanonicalName());
+
+
+		ProxyFactoryBean pfb1 = new ProxyFactoryBean();
+		MyDependency trgt = new MyDependency();
+		pfb1.setTarget(trgt);
+		pfb1.setInterceptorNames(new String[]{MySecretAdvice.class.getName()});
+		pfb1.addAdvice(new MySecretAdvice());
+//		MyDependency proxed = (MyDependency) pfb1.getObject();
 	}
 }

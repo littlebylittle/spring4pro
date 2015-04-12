@@ -9,9 +9,9 @@ package pfb;
 /**  @author igorm  */
 public class MyDependency {
 	public void foo() {
-		System.out.println("foo()");
+		System.out.println("calling method foo()");
 	}
 	public void bar() {
-		System.out.println("bar()");
+		System.out.println("calling method bar()");
 	}
 }

@@ -20,18 +20,18 @@
 ">
 	<bean id="myBean1" class="pfb.MyBean">
 		<property name="dep">
-			<ref bean="myDependancy1">
+			<ref bean="myDependancy1"/>
 		</property>
-	</bean>	
+	</bean>
 	<bean id="myBean2" class="pfb.MyBean">
 		<property name="dep">
-			<ref bean="myDependency2">
+			<ref bean="myDependancy2"/>
 		</property>
 	</bean>
 	<bean id="myDependancyTarget" name="myDependancyTarget" class="pfb.MyDependency"></bean> <!--class with foo & boo -->
 	<bean id="myDependancy1" name="pfb1" class="org.springframework.aop.framework.ProxyFactoryBean"><!-- pfb -->
 		<property name="target">
-			<ref local="myBean1"></ref> <!-- setTarget myBean -->
+			<ref bean ="myDependancyTarget"></ref> <!-- setTarget myBean -->
 		</property>
 		<property name="interceptorNames">
 			<list>
@@ -41,7 +41,7 @@
 	</bean>
 	<bean id="myDependancy2" name="pfb2" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target">
-			<ref local="myDependancyTarget"></ref>
+			<ref bean="myDependancyTarget"></ref>
 		</property>
 		<property name="interceptorNames">
 			<list>
@@ -52,14 +52,14 @@
 	<bean id="advice" class="pfb.MySecretAdvice"></bean>
 	<bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
 		<property name="advice">
-			<ref local="advice"></ref>
+			<ref bean="advice"></ref>
 		</property>
 		<property name="pointcut">
 			<bean class="org.springframework.aop.aspectj.AspectJExpressionPointcut">
 				<property name="expression">
-					<value>execution(* foo*(...))</value>
+					<value>execution(* foo*(..))</value>
 				</property>
-			<bean>
+			</bean>
 		</property>
 	</bean>
 </beans>

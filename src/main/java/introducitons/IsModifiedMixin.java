@@ -33,26 +33,23 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 					Object oldVal = getter.invoke(mi.getThis(), (Object[]) null);
 					if(newVal == null && oldVal == null) {
 						modified = false;
-					} else if ((newVal != null && oldVal == null) || 
+					} else if ((newVal != null && oldVal == null) ||
 							   (newVal == null && oldVal != null) ) {
 						modified =  true;
 					} else
 						modified = !newVal.equals(oldVal);
 				}
 			}
-		} 
+		}
 		return super.invoke(mi);
 	}
-	
+
 	private void showMI(MethodInvocation mi) {
-//		System.out.println("[Call invoke for method = " + mi.getMethod().getName() + "] modified = " + isModified());		
+//		System.out.println("[Call invoke for method = " + mi.getMethod().getName() + "] modified = " + isModified());
 	}
-	
+
 	private boolean methodStartWith(MethodInvocation mi, String substr) {
-		if(mi.getMethod().getName().startsWith(substr)) {
-			return true;
-		} else
-			return false;
+		return mi.getMethod().getName().startsWith(substr);
 	}
 	@Override
 	public boolean isModified() {
@@ -65,8 +62,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 		}
 		String getterName = setter.getName().replaceFirst("set", "get");
 		try {
-//			@SuppressWarnings("null")
-			getter = setter.getDeclaringClass().getMethod(getterName, null);
+			getter = setter.getDeclaringClass().getMethod(getterName);
 			synchronized (methodCache) {
 				methodCache.put(setter, getter);
 			}
@@ -75,7 +71,7 @@ public class IsModifiedMixin extends DelegatingIntroductionInterceptor implement
 			return null;
 		}
 	}
-	
+
 	private Method getGetter(Method setter) {
 		return getGetterFromSetter(setter);
 	}
