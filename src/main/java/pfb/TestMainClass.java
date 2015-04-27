@@ -11,9 +11,12 @@ public class TestMainClass {
 
 		ProxyFactoryBean pfb1 = new ProxyFactoryBean();
 		MyDependency trgt = new MyDependency();
-		pfb1.setTarget(trgt);
-		pfb1.setInterceptorNames(new String[]{MySecretAdvice.class.getName()});
+		MyBean bean1 = new MyBean();
+		bean1.setDep(trgt);
+		pfb1.setTarget(bean1);
 		pfb1.addAdvice(new MySecretAdvice());
-//		MyDependency proxed = (MyDependency) pfb1.getObject();
+//		pfb1.setInterceptorNames(new String[] {MySecretAdvice.class.getName()});
+		MyBean proxed = (MyBean) pfb1.getObject();
+		proxed.execute();
 	}
 }

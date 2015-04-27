@@ -28,10 +28,11 @@
 			<ref bean="myDependancy2"/>
 		</property>
 	</bean>
-	<bean id="myDependancyTarget" name="myDependancyTarget" class="pfb.MyDependency"></bean> <!--class with foo & boo -->
-	<bean id="myDependancy1" name="pfb1" class="org.springframework.aop.framework.ProxyFactoryBean"><!-- pfb -->
+	<!--Section with factory-->
+	<bean id="myDependancyTarget" name="myDependancyTarget" class="pfb.MyDependency"></bean>
+	<bean id="myDependancy1" name="pfb1" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target">
-			<ref bean ="myDependancyTarget"></ref> <!-- setTarget myBean -->
+			<ref bean ="myDependancyTarget"></ref>
 		</property>
 		<property name="interceptorNames">
 			<list>
