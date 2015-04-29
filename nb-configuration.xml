@@ -33,6 +33,8 @@ Any value defined here will override the pom.xml file value but is only applicab
             <config-file>src/main/resources/appContext/messageSource.xml</config-file>
             <config-file>src/main/resources/events/events.xml</config-file>
             <config-file>src/main/resources/aop/pfb.xml</config-file>
+            <config-file>src/main/resources/jdbc/datasource-drivemanager.xml</config-file>
+            <config-file>src/main/resources/jdbc/app-context-xml.xml</config-file>
         </config-files>
         <config-file-groups/>
     </spring-data>
